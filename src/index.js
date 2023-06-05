@@ -1,17 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import phones from './data';
+import Phone from './phoneComp';
+
+const Phonelist = () => {
+    return(
+        <div>
+            <h1>Amazon<span className="headPrime">✔prime</span></h1>
+            <section className='phonelist'>
+                {phones.map((phone, index) =>{
+                    return <Phone {...phone} number={index}></Phone>
+                })}
+            </section>
+        </div>
+    )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    // <App />
+    <Phonelist />
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
